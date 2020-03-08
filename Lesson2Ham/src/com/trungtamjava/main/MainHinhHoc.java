@@ -28,11 +28,11 @@ public class MainHinhHoc {
 		// Hinh Vuong
 		System.out.println("Chu Vi Hinh Vuong la :" + cvHinhVuong);
 		System.out.println("Dien Tich Hinh Vuong la :" + dtHinhVuong);
-		
-		// Hinh TRon
+
+		// Hinh Tron
 		System.out.println("Chu Vi Hinh Tron la :" + cvHinhTron);
 		System.out.println("Dien Tich Hinh Tron la :" + dtHinhTron);
-		
+
 		// Hinh Chu Nhat
 		System.out.println("Chu Vi Hinh Chu Nhat la :" + cvHinhChuNhat);
 		System.out.println("Dien Tich Hinh Chu Nhat la :" + dtHinhChuNhat);
