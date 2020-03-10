@@ -18,14 +18,11 @@ public class MainTinhLuong {
 		// Decimal Format
 		Locale locale = new Locale("<em>vi</em>", "VN");
 		String pattern = "###,###.###";
-
 		DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(locale);
 		decimalFormat.applyPattern(pattern);
 		String formatBv = decimalFormat.format(BaoVe.tinhLuong(luongBaoVe));
 		String formatKt = decimalFormat.format(KeToan.tinhLuong(luongKeToan));
 		String formatLt = decimalFormat.format(LeTan.tinhLuong(luongLeTan));
-
-		
 
 		// Hien Thi
 		System.out.println("Lương Bảo Vệ là :" + formatBv + " VND");
