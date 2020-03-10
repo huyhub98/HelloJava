@@ -28,9 +28,9 @@ public class MainTinhLuong {
 		
 
 		// Hien Thi
-		System.out.println("Luong Bao Ve la :" + formatBv + " VND");
-		System.out.println("Luong Ke Toan la :" + formatKt + " VND");
-		System.out.println("Luong Le Tan la :" + formatLt + " VND");
+		System.out.println("Lương Bảo Vệ là :" + formatBv + " VND");
+		System.out.println("Lương Kế Toán là :" + formatKt + " VND");
+		System.out.println("Lương Lễ Tân là  :" + formatLt + " VND");
 	}
 
 }
