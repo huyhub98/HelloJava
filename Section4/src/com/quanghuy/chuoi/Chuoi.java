@@ -34,8 +34,8 @@ public class Chuoi {
 		char kyTu2 = 'ạ';
 		char kyTu3 = 'á';
 		char kyTu4 = 'ã';
-		char kyTu5 = 'ạ';
-		char kyTu6 = 'ả';
+		char kyTu5 = 'ả';
+		char kyTu6 = 'à';
 		int count = 0;
 		for (int i = 0; i < string1.length(); i++) {
 			if (string1.charAt(i) == kyTu1 || string1.charAt(i) == kyTu2 || string1.charAt(i) == kyTu3
