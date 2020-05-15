@@ -12,6 +12,7 @@ public class Chuoi {
 		stringLength(string1);
 		compareChuoi(string1, string2);
 		count(string1);
+		spaceSplit(string1);
 	}
 
 	// In ra độ dài của string1
@@ -44,5 +45,13 @@ public class Chuoi {
 			}
 		}
 		System.out.println("Chuỗi có " + count + " lần kí tự A xuất hiện trong chuỗi " + string1);
+	}
+
+	public static void spaceSplit(String string1) {
+		String[] split = string1.split("\\s+");
+		System.out.println("Các chuỗi sau khi cắt:");
+		for (int i = 0; i < split.length; i++) {
+			System.out.println(split[i]);
+		}
 	}
 }
