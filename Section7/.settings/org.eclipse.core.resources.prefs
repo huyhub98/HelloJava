@@ -1,8 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/com/quanghuy/company/Developer.java=UTF-8
+encoding//src/com/quanghuy/company/Employee.java=UTF-8
+encoding//src/com/quanghuy/company/Leader.java=UTF-8
+encoding//src/com/quanghuy/company/Tester.java=UTF-8
+encoding//src/com/quanghuy/main/MainEmployee.java=UTF-8
 encoding//src/com/quanghuy/main/MainStudent.java=UTF-8
 encoding//src/com/quanghuy/main/MainTeacher.java=UTF-8
-encoding//src/com/quanghuy/model/Developer.java=UTF-8
-encoding//src/com/quanghuy/model/Employee.java=UTF-8
 encoding//src/com/quanghuy/model/Person.java=UTF-8
 encoding//src/com/quanghuy/model/Student.java=UTF-8
 encoding//src/com/quanghuy/model/Teacher.java=UTF-8
