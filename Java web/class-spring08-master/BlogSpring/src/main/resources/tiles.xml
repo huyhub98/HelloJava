@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?><!DOCTYPE tiles-definitions PUBLIC  
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- Base Definition -->
+	<!-- client-->
+	<definition name="client-definition"
+		template="/WEB-INF/views/include/clientLayout.jsp">
+		<put-attribute name="title"
+			value=""/>
+		<put-attribute name="header"
+			value="/WEB-INF/views/include/navbar.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/include/category.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/include/footer.jsp" />
+	</definition>  
+	
+	 <!-- admin -->
+	<definition name="admin-definition"
+		template="/WEB-INF/views/include/adminLayout.jsp">
+		<put-attribute name="title"
+			value=""/>
+		<put-attribute name="header"
+			value="/WEB-INF/views/include/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/include/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/include/footer.jsp" />
+	</definition>     
+
+	
+	
+	   <!-- Client Page -->
+	<definition name="home" extends="client-definition">
+		<put-attribute name="title"
+			value="home"/>
+		<put-attribute name="css" value="/static/css/blog-home.css"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/home.jsp" />
+	</definition>
+	<definition name="about" extends="base-definition">
+		<put-attribute name="title"
+			value="about"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/about.jsp" />
+	</definition>
+	<definition name="contact" extends="base-definition">
+		<put-attribute name="title"
+			value="contact"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/contact.jsp" />
+	</definition>
+	<definition name="search" extends="base-definition">
+		<put-attribute name="title"
+			value="search"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/search.jsp" />
+	</definition>
+	<definition name="detail" extends="base-definition">
+		<put-attribute name="title"
+			value="detail"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/client/detail.jsp" />
+	</definition>
+	
+	
+	  <!-- Admin Page -->
+	<definition name="creatcate" extends="base-definition">
+		<put-attribute name="title"
+			value="creatcate"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/creatcate.jsp" />
+	</definition>
+	<definition name="creatpost" extends="base-definition">
+		<put-attribute name="title"
+			value="creatpost"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/creatpost.jsp" />
+	</definition>
+	<definition name="index" extends="base-definition">
+		<put-attribute name="title"
+			value="index"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/index.jsp" />
+	</definition>
+	<definition name="listcate" extends="base-definition">
+		<put-attribute name="title"
+			value="listcate"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/listcategory.jsp" />
+	</definition>
+	<definition name="login" extends="base-definition">
+		<put-attribute name="title"
+			value="login"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/login.jsp" />
+	</definition>
+	<definition name="upcate" extends="base-definition">
+		<put-attribute name="title"
+			value="upcate"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/upcate.jsp" />
+	</definition>
+	<definition name="upost" extends="base-definition">
+		<put-attribute name="title"
+			value="uppost"/>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/upost.jsp" />
+	</definition>
+</tiles-definitions>
