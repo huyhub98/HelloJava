@@ -247,29 +247,29 @@ public class CarManager {
 				System.out.println(hon.getPrice());
 				System.out.println(hon.getBrand());
 				System.out.println(hon.getModel());
-			} else if (obj1 instanceof Vinfast) {
-				Vinfast vin = (Vinfast) obj1;
+			} else if (obj instanceof Vinfast) {
+				Vinfast vin = (Vinfast) obj;
 				System.out.println(vin.getId());
 				System.out.println(vin.getName());
 				System.out.println(vin.getPrice());
 				System.out.println(vin.getBrand());
 				System.out.println(vin.getModel());
-			} else if (obj2 instanceof Mercedez) {
-				Mercedez mer = (Mercedez) obj2;
+			} else if (obj instanceof Mercedez) {
+				Mercedez mer = (Mercedez) obj;
 				System.out.println(mer.getId());
 				System.out.println(mer.getName());
 				System.out.println(mer.getPrice());
 				System.out.println(mer.getBrand());
 				System.out.println(mer.getModel());
-			} else if (obj3 instanceof Toyota) {
-				Toyota toyota = (Toyota) obj3;
+			} else if (obj instanceof Toyota) {
+				Toyota toyota = (Toyota) obj;
 				System.out.println(toyota.getId());
 				System.out.println(toyota.getName());
 				System.out.println(toyota.getPrice());
 				System.out.println(toyota.getBrand());
 				System.out.println(toyota.getModel());
-			} else if (obj4 instanceof Audi) {
-				Audi au = (Audi) obj4;
+			} else if (obj instanceof Audi) {
+				Audi au = (Audi) obj;
 				System.out.println(au.getId());
 				System.out.println(au.getName());
 				System.out.println(au.getPrice());
