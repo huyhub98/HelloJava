@@ -89,8 +89,8 @@ public class CarManager {
 			} else if (option == 6) {
 				writeFile();
 			} else if (option == 7) {
-				// loadFile();
-				load();
+				loadFile();
+				// load();
 			} else if (option == 8) {
 				System.out.println("BYE");
 				break;
@@ -240,6 +240,7 @@ public class CarManager {
 		} else if (obj3 instanceof Toyota) {
 			Toyota toyota = (Toyota) obj3;
 			toyota.setModel(model);
+
 		}
 
 		show();
@@ -294,12 +295,17 @@ public class CarManager {
 			File file = new File("CarData.txt");
 
 			// Doc du lieu cu ra neu ton tai
-
+			if (file.exists()) {
+				FileInputStream fileInputStream = new FileInputStream(file);
+				ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+				// Doc du lieu cu ra gan vao list
+				cars = (List<Car>) objectInputStream.readObject();
+			}
+			cars.add(car);
+			// luu doi tuong
 			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-			// luu doi tuong
-			objectOutputStream.writeObject(car);
+			objectOutputStream.writeObject(cars);
 			System.out.println("Đã ghi file!");
 
 		} catch (Exception ex) {
@@ -313,13 +319,7 @@ public class CarManager {
 			if (file.exists()) {
 				FileInputStream fileInputStream = new FileInputStream(file);
 				cars = (List<Car>) new ObjectInputStream(fileInputStream).readObject();
-				for (Car c : cars) {
-					System.out.println(c.getName());
-					System.out.println(c.getId());
-					System.out.println(c.getPrice());
-					System.out.println(((Honda) c).toString());
-
-				}
+				show();
 			}
 		} catch (Exception ex) {
 			System.out.println(ex);
@@ -333,7 +333,7 @@ public class CarManager {
 			manager = (ArrayList) ois.readObject();
 			ois.close();
 		} catch (Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 
@@ -366,8 +366,8 @@ public class CarManager {
 			writer.flush();
 			writer.close();
 
-		} catch (IOException e) {
-			System.out.println(e);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 //	public static void topFive() {
