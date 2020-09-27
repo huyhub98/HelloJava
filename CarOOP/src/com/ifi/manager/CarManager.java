@@ -124,7 +124,6 @@ public class CarManager {
 					vinService.input(vinf);
 					vinfasts.add((Vinfast) vinf);
 					cars.add(vinf);
-					// System.out.println("đây là test: " + vinf.getModel().toString());
 				}
 			} else if (n == 3) {
 				if (obj2 instanceof Mercedez) {
@@ -240,14 +239,12 @@ public class CarManager {
 		} else if (obj3 instanceof Toyota) {
 			Toyota toyota = (Toyota) obj3;
 			toyota.setModel(model);
-
 		}
-
 		show();
 	}
 
 	public static void show() {
-		System.out.println("Danh sách sau khi update: ");
+		System.out.println("Danh sách : ");
 		for (Object obj : cars) {
 			System.out.println("--------------");
 			if (obj instanceof Honda) {
@@ -257,29 +254,29 @@ public class CarManager {
 				System.out.println(hon.getPrice());
 				System.out.println(hon.getBrand());
 				System.out.println(hon.getModel());
-			} else if (obj instanceof Vinfast) {
-				Vinfast vin = (Vinfast) obj;
+			} else if (obj1 instanceof Vinfast) {
+				Vinfast vin = (Vinfast) obj1;
 				System.out.println(vin.getId());
 				System.out.println(vin.getName());
 				System.out.println(vin.getPrice());
 				System.out.println(vin.getBrand());
 				System.out.println(vin.getModel());
-			} else if (obj instanceof Mercedez) {
-				Mercedez mer = (Mercedez) obj;
+			} else if (obj2 instanceof Mercedez) {
+				Mercedez mer = (Mercedez) obj2;
 				System.out.println(mer.getId());
 				System.out.println(mer.getName());
 				System.out.println(mer.getPrice());
 				System.out.println(mer.getBrand());
 				System.out.println(mer.getModel());
-			} else if (obj instanceof Toyota) {
-				Toyota toyota = (Toyota) obj;
+			} else if (obj3 instanceof Toyota) {
+				Toyota toyota = (Toyota) obj3;
 				System.out.println(toyota.getId());
 				System.out.println(toyota.getName());
 				System.out.println(toyota.getPrice());
 				System.out.println(toyota.getBrand());
 				System.out.println(toyota.getModel());
-			} else if (obj instanceof Audi) {
-				Audi au = (Audi) obj;
+			} else if (obj4 instanceof Audi) {
+				Audi au = (Audi) obj4;
 				System.out.println(au.getId());
 				System.out.println(au.getName());
 				System.out.println(au.getPrice());
@@ -305,6 +302,7 @@ public class CarManager {
 			// luu doi tuong
 			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+			
 			objectOutputStream.writeObject(cars);
 			System.out.println("Đã ghi file!");
 
@@ -328,10 +326,10 @@ public class CarManager {
 
 	public static void load() {
 		try {
-			FileInputStream fis = new FileInputStream("CarData.txt");
-			ObjectInputStream ois = new ObjectInputStream(fis);
-			manager = (ArrayList) ois.readObject();
-			ois.close();
+			FileInputStream fileInputStream = new FileInputStream("CarData.txt");
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			manager = (ArrayList) objectInputStream.readObject();
+			objectInputStream.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -370,17 +368,4 @@ public class CarManager {
 			e.printStackTrace();
 		}
 	}
-//	public static void topFive() {
-//		String max = "";
-//		Collections.sort(cars, new Comparator<Car>() {
-//
-//			@Override
-//			public int compare(Car o1, Car o2) {
-//				return (int) (o2.getPrice() - o1.getPrice());
-//			}
-//		});
-//		for (int i = 0; i < 5; i++) {
-//			max = (Car) cars.get(i).getName() + "Giá: " + (Car) cars.get(i).getPrice();
-//		}
-//	}
 }

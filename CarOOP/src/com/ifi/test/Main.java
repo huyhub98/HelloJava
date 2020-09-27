@@ -11,6 +11,15 @@ public class Main {
 	static CarManager manager;
 
 	public static void main(String[] args) {
+		//test();
+		manager = new CarManager();
+		Report report = new Report();
+		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		scheduler.scheduleWithFixedDelay(report, 0, 10, TimeUnit.SECONDS);
+		CarManager.menu();
+	}
+
+	public static void test() {
 //		Car car = new Honda();
 //		Object obj = new Object();
 //		car.setId(1);
@@ -24,10 +33,5 @@ public class Main {
 //		System.out.println(car.getPrice());
 //		System.out.println(((Honda) car).getBrand());
 //		System.out.println(((Honda) car).getModel());
-		manager = new CarManager();
-		Report report = new Report();
-		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-		scheduler.scheduleWithFixedDelay(report, 0, 10, TimeUnit.SECONDS);
-		CarManager.menu();
 	}
 }
