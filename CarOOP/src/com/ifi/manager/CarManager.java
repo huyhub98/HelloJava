@@ -3,8 +3,12 @@ package com.ifi.manager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,6 +29,10 @@ import com.ifi.service.ToyotaServiceImpl;
 import com.ifi.service.VinfastServiceImpl;
 
 public class CarManager {
+	LocalDateTime time;
+	static ArrayList manager;
+	DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm-ss");
+
 	public static List<Honda> hondas = new ArrayList<Honda>();
 	public static List<Vinfast> vinfasts = new ArrayList<Vinfast>();
 	public static List<Mercedez> mercedezs = new ArrayList<Mercedez>();
@@ -81,7 +89,8 @@ public class CarManager {
 			} else if (option == 6) {
 				writeFile();
 			} else if (option == 7) {
-				loadFile();
+				// loadFile();
+				load();
 			} else if (option == 8) {
 				System.out.println("BYE");
 				break;
@@ -317,6 +326,50 @@ public class CarManager {
 		}
 	}
 
+	public static void load() {
+		try {
+			FileInputStream fis = new FileInputStream("CarData.txt");
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			manager = (ArrayList) ois.readObject();
+			ois.close();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public String priceMaxFive() {
+		String res = "";
+		Collections.sort(manager, new Comparator<Car>() {
+			@Override
+			public int compare(Car o1, Car o2) {
+				return (int) (o2.getPrice() - o1.getPrice());
+			}
+		});
+
+		for (int i = 0; i < 5; i++) {
+			res += ((Car) manager.get(i)).getName() + " Price: " + ((Car) manager.get(i)).getPrice() + "$";
+			res += "\n";
+		}
+		return res;
+	}
+
+	public void printReportFixedRate() {
+		try {
+			String topPrice = priceMaxFive();
+			System.out.println(topPrice);
+			time = LocalDateTime.now();
+			String ftime = time.format(TIME_FORMAT);
+			String fileName = "Top 5 Highest Price Car " + ftime;
+			File output = new File(fileName + ".txt");
+			FileWriter writer = new FileWriter(output);
+			writer.write(topPrice);
+			writer.flush();
+			writer.close();
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
 //	public static void topFive() {
 //		String max = "";
 //		Collections.sort(cars, new Comparator<Car>() {

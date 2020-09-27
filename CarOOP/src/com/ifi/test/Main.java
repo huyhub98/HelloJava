@@ -1,23 +1,15 @@
 package com.ifi.test;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import com.ifi.manager.CarManager;
-import com.ifi.model.Audi;
-import com.ifi.model.Car;
-import com.ifi.model.Honda;
-import com.ifi.model.Mercedez;
-import com.ifi.model.Toyota;
-import com.ifi.model.Vinfast;
-import com.ifi.service.HondaServiceImpl;
+import com.ifi.utils.Report;
 
 public class Main {
+	static CarManager manager;
+
 	public static void main(String[] args) {
 //		Car car = new Honda();
 //		Object obj = new Object();
@@ -32,7 +24,10 @@ public class Main {
 //		System.out.println(car.getPrice());
 //		System.out.println(((Honda) car).getBrand());
 //		System.out.println(((Honda) car).getModel());
-
+		manager = new CarManager();
+		Report report = new Report();
+		ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		scheduler.scheduleWithFixedDelay(report, 0, 10, TimeUnit.SECONDS);
 		CarManager.menu();
 	}
 }
