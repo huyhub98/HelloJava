@@ -1,32 +1,12 @@
-package com.ifi.manager;
+package manager;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.ifi.model.*;
+import com.ifi.service.*;
+
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
-
-import com.ifi.model.Audi;
-import com.ifi.model.Car;
-import com.ifi.model.Honda;
-import com.ifi.model.Mercedez;
-import com.ifi.model.Toyota;
-import com.ifi.model.Vinfast;
-import com.ifi.service.AudiServiceImpl;
-import com.ifi.service.CarServiceImpl;
-import com.ifi.service.HondaServiceImpl;
-import com.ifi.service.MercedezServiceImpl;
-import com.ifi.service.ToyotaServiceImpl;
-import com.ifi.service.VinfastServiceImpl;
+import java.util.*;
 
 public class CarManager {
 	LocalDateTime time;

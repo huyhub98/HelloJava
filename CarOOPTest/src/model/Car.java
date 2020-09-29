@@ -1,9 +1,9 @@
-package com.ifi.model;
-
-import java.io.Serializable;
+package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.io.Serializable;
 
 @Data
 @AllArgsConstructor

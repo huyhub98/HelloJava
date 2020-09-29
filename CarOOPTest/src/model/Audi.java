@@ -1,13 +1,13 @@
-package com.ifi.model;
+package model;
 
 import com.ifi.utils.CarConst;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import utils.CarConst;
 
 import java.io.Serializable;
 
-@Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Audi extends Car implements Serializable{
 	private String brand = CarConst.AUDI;
 	private String model;
