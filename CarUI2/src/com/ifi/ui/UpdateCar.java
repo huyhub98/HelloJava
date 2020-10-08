@@ -5,7 +5,10 @@
  */
 package com.ifi.ui;
 
+import com.ifi.dao.CarDao;
+import com.ifi.dao.CarDaoImpl;
 import static com.ifi.manager.CarManager.carTable;
+import com.ifi.model.Car;
 import com.ifi.model.CarBrand;
 import static com.ifi.ui.AddCar.getConnection;
 import java.awt.Dimension;
@@ -89,6 +92,11 @@ public class UpdateCar extends javax.swing.JFrame {
         jLabel5.setText("Price");
 
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reset");
 
@@ -271,6 +279,24 @@ public class UpdateCar extends javax.swing.JFrame {
         priceTextfield.setText(price);
         getBrand();
     }//GEN-LAST:event_carTableMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            Car car = new Car();
+            car.setId(Integer.parseInt(idTextfield.getText()));
+            car.setName(carNameTextfield.getText());
+            car.setPrice(Long.parseLong(priceTextfield.getText()));
+            car.setModel(modelTextfield.getText());
+
+            car.setBrand((CarBrand) brandCombobox.getSelectedItem());
+            CarDao carDao = new CarDaoImpl();
+            carDao.update(car);
+            JOptionPane.showMessageDialog(brandCombobox, "Sửa thông tin xe thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
