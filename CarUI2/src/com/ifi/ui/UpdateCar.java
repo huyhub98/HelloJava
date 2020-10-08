@@ -6,12 +6,14 @@
 package com.ifi.ui;
 
 import static com.ifi.manager.CarManager.carTable;
+import com.ifi.model.CarBrand;
 import static com.ifi.ui.AddCar.getConnection;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -212,6 +214,29 @@ public class UpdateCar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    // combobox data
+    private CarBrand getBrand() {
+
+        try {
+
+            String sql = "SELECT * FROM cardb.brand";
+            Connection conn = getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                CarBrand carBrand = new CarBrand();
+                int id = rs.getInt("id");
+                String name = rs.getString("brand_name");
+                carBrand.setId(id);
+                carBrand.setName(name);
+                brandCombobox.addItem(carBrand);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(brandCombobox, e);
+        }
+        return null;
+    }
     private void btnShowListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowListActionPerformed
         // TODO add your handling code here:
         try {
@@ -244,7 +269,7 @@ public class UpdateCar extends javax.swing.JFrame {
         carNameTextfield.setText(name);
         modelTextfield.setText(model);
         priceTextfield.setText(price);
-        brandCombobox.addItem(brandName);
+        getBrand();
     }//GEN-LAST:event_carTableMouseClicked
 
     /**
@@ -283,7 +308,7 @@ public class UpdateCar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> brandCombobox;
+    private javax.swing.JComboBox<CarBrand> brandCombobox;
     private javax.swing.JButton btnShowList;
     private javax.swing.JTextField carNameTextfield;
     private javax.swing.JTable carTable;

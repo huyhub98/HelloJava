@@ -71,7 +71,7 @@ public class AddCar extends javax.swing.JFrame {
         try {
 
             String sql = "SELECT * FROM cardb.brand";
-            conn = getConnection();
+            Connection conn = getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
