@@ -77,7 +77,7 @@ public class AddCar extends javax.swing.JFrame {
             while (rs.next()) {
                 CarBrand carBrand = new CarBrand();
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
+                String name = rs.getString("brand_name");
                 carBrand.setId(id);
                 carBrand.setName(name);
                 brandComboBox.addItem(carBrand);
@@ -89,31 +89,6 @@ public class AddCar extends javax.swing.JFrame {
         return null;
     }
 
-//    public List<CarBrand> getBrands() {
-//        List<CarBrand> carBrands = new ArrayList<CarBrand>();
-//        try {
-//            String sql = "SELECT * FROM cardb.brand";
-//            conn = getConnection();
-//            PreparedStatement statement = conn.prepareStatement(sql);
-//
-//            ResultSet rs = statement.executeQuery();
-//            while (rs.next()) {
-//                CarBrand carBrand = new CarBrand();
-//
-//                carBrand.setName(rs.getString("name"));
-//                carBrands.add(carBrand);
-//
-//            }
-//            brandComboBox.addItem(carBrands);
-//            for (CarBrand c : carBrands) {
-//                System.out.println(c.getName());
-//            }
-//
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(brandComboBox, e);
-//        }
-//        return carBrands;
-//    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

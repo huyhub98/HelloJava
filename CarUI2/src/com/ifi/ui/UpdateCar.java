@@ -30,9 +30,10 @@ public class UpdateCar extends javax.swing.JFrame {
      */
     public UpdateCar() {
         initComponents();
+        showList();
         screenPosition();
     }
-    
+
     public void screenPosition() {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -54,8 +55,8 @@ public class UpdateCar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         idTextfield = new javax.swing.JTextField();
         carNameTextfield = new javax.swing.JTextField();
         modelTextfield = new javax.swing.JTextField();
@@ -65,6 +66,7 @@ public class UpdateCar extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         carTable = new javax.swing.JTable();
         brandCombobox = new javax.swing.JComboBox<>();
+        btnDelete = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,14 +93,14 @@ public class UpdateCar extends javax.swing.JFrame {
 
         jLabel5.setText("Price");
 
-        jButton1.setText("Save");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSaveActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Reset");
+        btnReset.setText("Reset");
 
         jButton3.setText("Close");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +139,13 @@ public class UpdateCar extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(carTable);
 
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,25 +165,27 @@ public class UpdateCar extends javax.swing.JFrame {
                                 .addGap(38, 38, 38))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(jButton1)
+                                .addComponent(btnSave)
                                 .addGap(19, 19, 19)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(brandCombobox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(carNameTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                 .addComponent(idTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                 .addComponent(modelTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                .addComponent(priceTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))))
+                                .addComponent(priceTextfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnReset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnDelete))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(btnShowList)))
+                        .addGap(63, 63, 63)
+                        .addComponent(btnShowList)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,11 +214,13 @@ public class UpdateCar extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnShowList))
+                            .addComponent(btnSave)
+                            .addComponent(btnReset)
+                            .addComponent(btnDelete))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnShowList)
+                            .addComponent(jButton3)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -245,6 +258,27 @@ public class UpdateCar extends javax.swing.JFrame {
         }
         return null;
     }
+
+    private void showList() {
+         try {
+            Connection conn = getConnection();
+            PreparedStatement statement = conn.prepareStatement("SELECT car.id, car.name, car.model, car.price, brand.brand_name FROM cardb.car\n"
+                    + "INNER JOIN cardb.brand on brand.id = id_brand;");
+            ResultSet rs = statement.executeQuery();
+            DefaultTableModel table = (DefaultTableModel) carTable.getModel();
+
+            while (rs.next()) {
+                Object o[] = {rs.getInt("id"), rs.getString("name"), rs.getString("model"), rs.getLong("price"), rs.getString("brand_name")};
+                table.addRow(o);
+                
+            }
+            carTable.revalidate();
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private void btnShowListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowListActionPerformed
         // TODO add your handling code here:
         try {
@@ -253,7 +287,7 @@ public class UpdateCar extends javax.swing.JFrame {
                     + "INNER JOIN cardb.brand on brand.id = id_brand;");
             ResultSet rs = statement.executeQuery();
             DefaultTableModel table = (DefaultTableModel) carTable.getModel();
-            
+
             while (rs.next()) {
                 Object o[] = {rs.getInt("id"), rs.getString("name"), rs.getString("model"), rs.getLong("price"), rs.getString("brand_name")};
                 table.addRow(o);
@@ -266,13 +300,13 @@ public class UpdateCar extends javax.swing.JFrame {
     private void carTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carTableMouseClicked
         // TODO add your handling code here:
         DefaultTableModel tblModel = (DefaultTableModel) carTable.getModel();
-        
+
         String id = tblModel.getValueAt(carTable.getSelectedRow(), 0).toString();
         String name = tblModel.getValueAt(carTable.getSelectedRow(), 1).toString();
         String model = tblModel.getValueAt(carTable.getSelectedRow(), 2).toString();
         String price = tblModel.getValueAt(carTable.getSelectedRow(), 3).toString();
         String brandName = tblModel.getValueAt(carTable.getSelectedRow(), 4).toString();
-        
+
         idTextfield.setText(id);
         carNameTextfield.setText(name);
         modelTextfield.setText(model);
@@ -280,7 +314,7 @@ public class UpdateCar extends javax.swing.JFrame {
         getBrand();
     }//GEN-LAST:event_carTableMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         try {
             Car car = new Car();
@@ -292,11 +326,25 @@ public class UpdateCar extends javax.swing.JFrame {
             car.setBrand((CarBrand) brandCombobox.getSelectedItem());
             CarDao carDao = new CarDaoImpl();
             carDao.update(car);
+            carTable.revalidate();
             JOptionPane.showMessageDialog(brandCombobox, "Sửa thông tin xe thành công");
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        try {
+            Car car = new Car();
+            int id = Integer.parseInt(idTextfield.getText());
+            CarDao carDao = new CarDaoImpl();
+            carDao.delete(id);
+            JOptionPane.showMessageDialog(brandCombobox, "Xóa thông tin xe thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,12 +383,13 @@ public class UpdateCar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<CarBrand> brandCombobox;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnShowList;
     private javax.swing.JTextField carNameTextfield;
     private javax.swing.JTable carTable;
     private javax.swing.JTextField idTextfield;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
