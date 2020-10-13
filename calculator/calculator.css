@@ -29,11 +29,13 @@ body {
 .c {
     color: #fff;
     background-color: red;
+    font-size: 30px;
 }
 
 .equal {
     color: #fff;
     background-color: blue;
+    font-size: 30px;
 }
 
 .flex {
@@ -49,7 +51,6 @@ body {
 }
 .nano-flex{
     display: flex;
- 
     height: 50px;
     width: 90px;
     flex-flow: column;
@@ -66,4 +67,18 @@ body {
     border-style: solid;
     border-color: red;
     border-radius: 10px;
+}
+.number{
+    display: flex;
+    color: rgb(31, 104, 173);
+    font-size: 30px;
+    border-radius: 3px;
+    text-align: center;
+    
+}
+
+.operator{
+    font-size: 30px;
+    border-radius: 3px;
+    text-align: center;
 }
