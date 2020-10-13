@@ -1,0 +1,64 @@
+form {
+    background-color: DodgerBlue;
+    margin: 0 auto;
+    width: 450px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    border: blue;
+
+}
+
+form * {
+    box-sizing: border-box;
+}
+
+form table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+body {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+.c {
+    color: #fff;
+    background-color: red;
+}
+
+.equal {
+    color: #fff;
+    background-color: blue;
+}
+
+.flex {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 30px;
+}
+.mini-flex{
+    display: flex;
+    
+}
+.nano-flex{
+    display: flex;
+ 
+    height: 50px;
+    width: 90px;
+    flex-flow: column;
+    margin: 10px;
+    
+}
+.display{
+    display: flex;
+    height: 50px;
+    width: 200px;
+    
+}
