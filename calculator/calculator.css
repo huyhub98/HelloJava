@@ -1,8 +1,8 @@
 form {
-    background-color: DodgerBlue;
+    background-color: #a1cdf9;
     margin: 0 auto;
-    width: 450px;
-    height: 300px;
+    width: 650px;
+    height: 450px;
     padding: 20px;
     border-radius: 5px;
     border: blue;
@@ -59,6 +59,11 @@ body {
 .display{
     display: flex;
     height: 50px;
-    width: 200px;
+    width: 500px;
     
+}
+.border-div{
+    border-style: solid;
+    border-color: red;
+    border-radius: 10px;
 }
