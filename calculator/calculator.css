@@ -1,84 +1,252 @@
-form {
-    background-color: #a1cdf9;
-    margin: 0 auto;
-    width: 650px;
-    height: 450px;
-    padding: 20px;
-    border-radius: 5px;
-    border: blue;
-
-}
-
-form * {
+*, *::before, *::after {
     box-sizing: border-box;
-}
-
-form table {
-    width: 100%;
-    border-collapse: collapse;
+    font-family: Arial;
 }
 
 body {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    /* bring your own prefixes */
-    transform: translate(-50%, -50%);
+    background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+    align-self: center;
+    margin-top: 10%;
+    display: flex;
+    font-family: "Lato", "Arial", sans-serif;
+}
+
+.main {
+    background-color: #e3f5ff;
+    border: solid darkblue;
+    border-radius: 10px;
+    border-width: thick;
+    min-width: 20vh;
+    max-width: 80vh;
+    margin: auto;
+}
+
+.container {
+    margin: 1%;
+    display: flex;
+}
+
+.header-text-ifi {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 2%;
+    margin-right: 5%;
+    color: #b471b6;
+}
+
+.output {
+    background-color: white;
+    border: solid lightgray;
+    border-width: thick;
+    border-radius: 10px;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+
+.output-m {
+    text-align: left;
+    margin-top: 1%;
+    margin-left: 2%;
+    font-size: 80%;
+    color: lightgray;
+}
+
+.output-operation {
+    text-align: right;
+    color: black;
+    margin-top: 2%;
+    margin-right: 2%;
+    font-size: 300%;
+}
+
+.output-hr {
+    margin-top: -2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.output-current {
+    color: lightgray;
+    text-align: right;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+
+.text-math {
+    color: lightgray;
+    text-align: left;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.cal-grid {
+    background-color: transparent;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(6, minmax(3rem, 1fr));
+    grid-template-rows: repeat(5, minmax(3rem, 1fr));
+}
+
+.cal-grid>button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
 }
 
 .c {
     color: #fff;
-    background-color: red;
-    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.c:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .equal {
     color: #fff;
-    background-color: blue;
+    background-color: rgb(0, 93, 182);
     font-size: 30px;
+    line-height: 103px;
+    width: 100%;
+    border-radius: 5px;
+    grid-row: span 2;
 }
 
-.flex {
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    height: 50px;
-    width: 30px;
-}
-.mini-flex{
-    display: flex;
-    
-}
-.nano-flex{
-    display: flex;
-    height: 50px;
-    width: 90px;
-    flex-flow: column;
-    margin: 10px;
-    
-}
-.display{
-    display: flex;
-    height: 50px;
-    width: 500px;
-    
-}
-.border-div{
-    border-style: solid;
-    border-color: red;
-    border-radius: 10px;
-}
-.number{
-    display: flex;
-    color: rgb(31, 104, 173);
-    font-size: 30px;
-    border-radius: 3px;
-    text-align: center;
-    
+.equal:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
-.operator{
-    font-size: 30px;
-    border-radius: 3px;
+.display {
+    margin: auto;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+}
+
+.result {
+    margin: auto;
+    border: none;
+    background-color: white;
+    font-size: 20px;
+}
+
+.number {
+    color: rgb(0, 77, 160);
+    border-radius: 5px;
     text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.number:hover {
+    background-color: yellow;
+}
+
+.number:active {
+    background-color: yellow;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.operator {
+    color: rgb(253, 253, 253);
+    background-color: rgb(177, 176, 176);
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.operator:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.classic-operator {
+    font-size: 30px;
+    background-color: rgb(128, 128, 128);
+    color: rgb(254, 254, 254);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.classic-operator:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.pluss {
+    font-size: 30px;
+    background-color: rgb(128, 128, 128);
+    color: rgb(254, 254, 254);
+    line-height: 103px;
+    width: 100%;
+    border-radius: 5px;
+    grid-row: span 2;
+}
+
+.pluss:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.title--small-row {
+    margin-left: 5%;
+    font-size: 0.6rem;
+    font-weight: 100;
+    color: #d1d8db;
+}
+
+.title--options {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.35rem 0;
+    font-size: 0.4rem;
+}
+
+.pc-title {
+    margin-right: 5%;
+    font-size: 0.6rem;
+    font-weight: 100;
+    color: #d1d8db;
+}
+
+.memory-display {
+    display: block;
+    text-align: left;
+}
+
+.previous-result {
+    font-size: small;
+    border-top: 2px solid #b7b7b7;
+    padding: 0.1rem 0;
+}
+
+.calculator__display {
+    background-color: #fff;
+    color: #2d2d2d;
+    font-size: 1.7rem;
+    padding: 0.10rem 0.1rem;
+    text-align: right;
+    border: 0.3rem solid #a8a8a8;
+    border-radius: 5px;
+}
+
+.calculator__display>.previous-result {
+    font-size: small;
+    border-top: 2px solid #b7b7b7;
+    padding: 0.1rem 0;
 }
