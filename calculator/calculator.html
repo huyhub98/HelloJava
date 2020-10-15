@@ -1,73 +1,77 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <link  rel="stylesheet" type="text/css" href="calculator.css">
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+    <script src="calculator.js" defer></script>
 </head>
 
 <body>
     <div class="main">
         <div class="header-text-ifi"><b>IFI</b></div>
         <div class="container">
-            <form class="calculator">
-            <div class="calculator__display">
-                <div class="memory-display title--small-row">M1:0</div>
-                <div class="current-number">0</div>
-                <div class="previous-result title--small-row">0</div>
-            </div>
+            <div>
+                <div class="calculator__display">
+                    <div class="memory-display title--small-row">M1:0</div>
+                    <div data-current-operand class="current-operand">0</div>
+                    <div class="output-hr">
+                        <hr>
+                    </div>
+                    <div data-previous-operand class="previous-operand">0</div>
+                </div>
 
                 <div class="text-math">
                     Mathematical
                 </div>
 
                 <div class="cal-grid">
+                    <button class="operator" name="mc" value="MC ">MC</button>
+                    <button class="operator" name="mr" value="MR   ">MR</button>
+                    <button class="operator" name="m-" value="M- ">M-</button>
+                    <button class="operator" name="m+" value="M+ ">M+</button>
+                    <button class="operator" name="bracket1" value="(">(</button>
+                    <button class="operator" name="bracket1" value=")">)</button>
 
-                    
-                        <input type="button" class="operator" name="mc" value="MC ">
-                        <input type="button" class="operator" name="mr" value="MR   ">
-                        <input type="button" class="operator" name="m-" value="M- ">
-                        <input type="button" class="operator" name="m+" value="M+ ">
-                        <input type="button" class="operator" name="bracket1" value="(">
-                        <input type="button" class="operator" name="bracket1" value=")">
-                    
-                        <input type="button" class="operator" name="squared" value="√">
-                        <input type="button" class="number" name="seven" value="7" class="number" onclick="calculator.display.value += 7">
-                        <input type="button" class="number" name="eight" value="8" onclick="calculator.display.value += 8">
-                        <input type="button" class="number" name="nine" value="9" onclick="calculator.display.value += 9">
-                        <input type="button" class="classic-operator" name="div" value="/" onclick="calculator.display.value += '/'">
-                        <input type="button" class="operator" name="percent" value="%" onclick="calculator.display.value += '%'">
-                    
-                        <input type="button" class="operator" name="arrow" value="→">
-                        <input type="button" class="number" name="four" value="4" onclick="calculator.display.value += 4">
-                        <input type="button" class="number" name="five" value="5" onclick="calculator.display.value += 5">
-                        <input type="button" class="number" name="six" value="6" onclick="calculator.display.value += 6">
-                        <input type="button" class="classic-operator" name="times" value="x" onclick="calculator.display.value += '*'">
-                        <input type="button" class="classic-operator" name="minus" value="-" onclick="calculator.display.value += '-'">
-                    
-                        <input type="button" class="c" id="clear" name="allClear" value="AC" onclick="calculator.result.value = ''">
-                        <input type="button" class="number" name="one" value="1" onclick="calculator.display.value += 1">
-                        <input type="button" class="number" name="two" value="2" onclick="calculator.display.value += 2">
-                        <input type="button" class="number" name="three" value="3" onclick="calculator.display.value += 3">
-                        <input type="button" class="pluss" name="plus" value="+" onclick="calculator.display.value += '+'">
-                        <input type="button" class="equal" name="doit" value="=" onclick="calculator.result.value = eval(calculator.display.value)">
-                    
-                        <input type="button" class="c" id="clear" name="clear" value="C" onclick="calculator.display.value = ''">
-                        <input type="button" class="number" name="zero" value="0" onclick="calculator.display.value += '0'">
-                        <input type="button" class="number" name="doubleZero" value="00" onclick="calculator.display.value += '00'">
-                        <input type="button" class="number" name="dot" value="." onclick="calculator.display.value += '.'">
-                    </div>
-                    <div class="title--options">
-                        <div class="title--small-row">Decimal places - 2</div>
-                        <div class="pc-title">PC/Mobile</div>
-                    </div>
-            </form>
+                    <button class="operator">&radic;</button>
+                    <button data-number class="number">7</button>
+                    <button data-number class="number">8</button>
+                    <button data-number class="number">9</button>
+                    <button data-operation class="classic-operator">÷</button>
+                    <button class="operator" name="percent" value="%">%</button>
+
+                    <button data-delete class="operator">→</button>
+                    <button data-number class="number">4</button>
+                    <button data-number class="number">5</button>
+                    <button data-number class="number">6</button>
+                    <button data-operation class="classic-operator">x</button>
+                    <button data-operation class="classic-operator">-</button>
+
+                    <button data-all-clear class="c">AC</button>
+                    <button data-number class="number">1</button>
+                    <button data-number class="number">2</button>
+                    <button data-number class="number">3</button>
+                    <button data-operation class="pluss">+</button>
+                    <button data-equals class="equal">=</button>
+                    <button data-clear class="c">C</button>
+                    <button data-number class="number">0</button>
+                    <button data-number class="number">00</button>
+                    <button data-number class="number">.</button>
+                </div>
+
+                <div class="title--options">
+                    <div class="title--small-row">Decimal places - 2</div>
+                    <div class="pc-title">PC/Mobile</div>
+                </div>
             </div>
-            <div class="footer-text"></div>
-           
+
         </div>
+        <div class="footer-text"></div>
+    </div>
+
 </body>
 
 </html>
