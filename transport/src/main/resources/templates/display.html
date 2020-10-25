@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Display database</title>
+</head>
+<body>
+	<form method="get">
+		<input name="name" type="text" placeholder="search">
+		<button type="submit">search</button>
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>name</th>
+				<th>status</th>
+				<th>sendDes</th>
+				<th>receiveDes</th>
+				<th>initDate</th>
+				<th>finishDate</th>
+				<th>shipManu</th>
+				<th>description</th>
+				<th>weight</th>
+				<th>shippingFee</th>
+				<th>charges</th>
+
+			</tr>
+
+			<c:forEach items="${TransportList}" var="t">
+				<tr>
+					<td>${t.id}</td>
+					<td>${t.name}</td>
+					<td>${t.status}</td>
+					<td>${t.sendDes}</td>
+					<td>${t.receiveDes}</td>
+					<td>${t.initDate}</td>
+					<td>${t.finishDate}</td>
+					<td>${t.shipManu}</td>
+					<td>${t.description}</td>
+					<td>${t.weight}</td>
+					<td>${t.shippingFee}</td>
+					<td>${t.charges}</td>
+				</tr>
+			</c:forEach>
+
+		</table>
+	</form>
+</body>
+</html>
