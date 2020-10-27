@@ -26,19 +26,21 @@ public class TransportController {
     private TransportDaoImpl transportDao;
     public static List<Transport> transportList = new ArrayList<Transport>();
 
-        @GetMapping(value = "/display")
+    @GetMapping(value = "/display")
     public String show(Model model, @RequestParam(value = "keyword", required = false) String keyword) {
         if (keyword == null) {
             keyword = "";
         }
         transportList = transportRepository.search("%" + keyword + "%");
         model.addAttribute("trans", transportList);
+        model.addAttribute("keyword", keyword);
         return "display";
     }
+
 //    @GetMapping(value = "/display")
 //    public String show(Model model,HttpServletRequest req) {
-//        transportList = transportDao.getList();
-//        //transportList = transportRepository.show();
+//        //transportList = transportDao.getList();
+//        transportList = transportRepository.show();
 //        //model.addAttribute("trans", transportList);
 //        req.setAttribute("trans",transportList);
 //        return "display";
@@ -51,9 +53,9 @@ public class TransportController {
     }
 
     @GetMapping(value = "/update")
-    public String update(@RequestParam(value = "id") int id, HttpServletRequest req){
+    public String update(@RequestParam(value = "id") int id, HttpServletRequest req) {
         Transport trans = transportRepository.getOne(id);
-        req.setAttribute("trans",trans);
+        req.setAttribute("trans", trans);
         return "update";
     }
 }
