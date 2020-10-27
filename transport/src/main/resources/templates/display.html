@@ -1,48 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>Display database</title>
+    <meta charset="UTF-8">
+    <title>Display database</title>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/AdminSearch.css}">-->
 </head>
 <body>
-	<form method="get">
-		<input name="name" type="text" placeholder="search">
-		<button type="submit">search</button>
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>name</th>
-				<th>status</th>
-				<th>sendDes</th>
-				<th>receiveDes</th>
-				<th>initDate</th>
-				<th>finishDate</th>
-				<th>shipManu</th>
-				<th>description</th>
-				<th>weight</th>
-				<th>shippingFee</th>
-				<th>charges</th>
+<form method="get">
+    <input name="name" type="text" placeholder="search">
+    <button type="submit">search</button>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>status</th>
+            <th>sendDes</th>
+            <th>receiveDes</th>
+            <th>initDate</th>
+            <th>finishDate</th>
+            <th>shipManu</th>
+            <th>description</th>
+            <th>weight</th>
+            <th>shippingFee</th>
+            <th>charges</th>
 
-			</tr>
+        </tr>
 
-			<c:forEach items="${TransportList}" var="t">
-				<tr>
-					<td>${t.id}</td>
-					<td>${t.name}</td>
-					<td>${t.status}</td>
-					<td>${t.sendDes}</td>
-					<td>${t.receiveDes}</td>
-					<td>${t.initDate}</td>
-					<td>${t.finishDate}</td>
-					<td>${t.shipManu}</td>
-					<td>${t.description}</td>
-					<td>${t.weight}</td>
-					<td>${t.shippingFee}</td>
-					<td>${t.charges}</td>
-				</tr>
-			</c:forEach>
+        <tr th:each="tran : ${trans}">
+            <td th:text>${tran.id}</td>
+            <td th:text>${tran.name}</td>
+            <td th:text>${tran.status}</td>
+            <td th:text>${tran.sendDes}</td>
+            <td th:text>${tran.receiveDes}</td>
+            <td th:text>${tran.initDate}</td>
+            <td th:text>${tran.finishDate}</td>
+            <td th:text>${tran.shipManu}</td>
+            <td th:text>${tran.description}</td>
+            <td th:text>${tran.weight}</td>
+            <td th:text>${tran.shippingFee}</td>
+            <td th:text>${tran.charges}</td>
+        </tr>
 
-		</table>
-	</form>
+
+    </table>
+</form>
 </body>
 </html>
