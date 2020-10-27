@@ -10,4 +10,6 @@ public interface TransportDao {
     void update(Transport trans);
 
     void delete(int id);
+
+    List<Transport> getList();
 }

@@ -42,4 +42,9 @@ public class TransportDaoImpl implements TransportDao {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<Transport> getList() {
+        return entityManager.createQuery("SELECT t FROM Transport t",Transport.class).getResultList();
+    }
 }

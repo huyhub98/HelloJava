@@ -3,46 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Display database</title>
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/AdminSearch.css}">-->
+
 </head>
 <body>
 <form method="get">
-    <input name="name" type="text" placeholder="search">
-    <button type="submit">search</button>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>name</th>
-            <th>status</th>
-            <th>sendDes</th>
-            <th>receiveDes</th>
-            <th>initDate</th>
-            <th>finishDate</th>
-            <th>shipManu</th>
-            <th>description</th>
-            <th>weight</th>
-            <th>shippingFee</th>
-            <th>charges</th>
-
-        </tr>
-
-        <tr th:each="tran : ${trans}">
-            <td th:text>${tran.id}</td>
-            <td th:text>${tran.name}</td>
-            <td th:text>${tran.status}</td>
-            <td th:text>${tran.sendDes}</td>
-            <td th:text>${tran.receiveDes}</td>
-            <td th:text>${tran.initDate}</td>
-            <td th:text>${tran.finishDate}</td>
-            <td th:text>${tran.shipManu}</td>
-            <td th:text>${tran.description}</td>
-            <td th:text>${tran.weight}</td>
-            <td th:text>${tran.shippingFee}</td>
-            <td th:text>${tran.charges}</td>
-        </tr>
-
-
-    </table>
+    <div>
+        <label>
+            <input name="keyword" type="text" th:value="${keyword}" placeholder="Enter name....">
+        </label>
+    </div>
+    <div>
+        <button type="submit">search</button>
+    </div>
 </form>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>name</th>
+        <th>status</th>
+        <th>sendDes</th>
+        <th>receiveDes</th>
+        <th>initDate</th>
+        <th>finishDate</th>
+        <th>shipManu</th>
+        <th>description</th>
+        <th>weight</th>
+        <th>shippingFee</th>
+        <th>charges</th>
+        <th>options</th>
+
+    </tr>
+
+    <tr th:each="tran : ${trans}">
+        <td th:text="${tran.id}"></td>
+        <td th:text="${tran.name}"></td>
+        <td th:text="${tran.status}"></td>
+        <td th:text="${tran.sendDes}"></td>
+        <td th:text="${tran.receiveDes}"></td>
+        <td th:text="${tran.initDate}"></td>
+        <td th:text="${tran.finishDate}"></td>
+        <td th:text="${tran.shipManu}"></td>
+        <td th:text="${tran.description}"></td>
+        <td th:text="${tran.weight}"></td>
+        <td th:text="${tran.shippingFee}"></td>
+        <td th:text="${tran.charges}"></td>
+        <td><a th:href="@{'/delete?id='+ ${tran.id}}">Delete</a> <a
+                th:href="@{'/update?id='+ ${tran.id}}">Edit</a></td>
+    </tr>
+
+
+</table>
+
 </body>
 </html>

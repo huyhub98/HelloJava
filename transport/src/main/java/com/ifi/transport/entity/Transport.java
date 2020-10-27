@@ -2,30 +2,49 @@ package com.ifi.transport.entity;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table (name = "transportation")
+@Table(name = "transportation")
 public class Transport {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private String name;
-	private String status;
-	private String sendDes;
-	private String receiveDes;
-	private Date initDate;
-	private Date finishDate;
-	private String shipManu;
-	private String description;
-	private double weight;
-	private int shippingFee;
-	private int charges;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "send_des")
+    private String sendDes;
+
+    @Column(name = "receive_des")
+    private String receiveDes;
+
+    @Column(name = "init_date")
+    private Date initDate;
+
+    @Column(name = "finish_date")
+    private Date finishDate;
+
+    @Column(name = "ship_manu")
+    private String shipManu;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "weight")
+    private double weight;
+
+    @Column(name = "shipping_fee")
+    private int shippingFee;
+
+    @Column(name = "charges")
+    private int charges;
 }
