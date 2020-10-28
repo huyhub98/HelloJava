@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+
+<div>
+    <h1>Sign Up</h1>
+    <form th:action="@{/create}" method="POST">
+        <table width="550" height="550" border="2" cellpadding="5"
+               align="center">
+            <tr>
+                <th colspan="2">
+                    <h3>Create</h3>
+                </th>
+            </tr>
+            <!--            <tr>-->
+            <!--                <td>ID</td>-->
+            <!--                <td><input type="text" name="id" size="30"-->
+            <!--                           placeholder="ID" aria-placeholder="id"></td>-->
+            <!--            </tr>-->
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name" size="30"
+                           placeholder="Enter name"></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><input type="text" name="status" size="30"
+                           placeholder="Enter status"></td>
+            </tr>
+            <tr>
+                <td>Sending Destination</td>
+                <td><input type="text" name="sendDes" size="30"
+                           placeholder="sending destination"></td>
+            </tr>
+            <tr>
+                <td>Receiving Destination</td>
+                <td><input type="text" name="receiveDes" size="30"
+                           placeholder="receiving destination"></td>
+            </tr>
+            <tr>
+                <td>Initial Date</td>
+                <td><input type="date" id="initDate"
+                           name="initDate"></td>
+            </tr>
+            <tr>
+                <td>Finishing Date</td>
+                <td><input type="date" id="finishDate"
+                           name="finishDate"></td>
+            </tr>
+            <tr>
+                <td>Shipping manufacturer</td>
+                <td><input type="text" name="shipManu" size="30"
+                           placeholder="shipping manufacturer"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea name="description" cols="20"></textarea></td>
+            </tr>
+            <tr>
+                <td>Product's Weight</td>
+                <td><input type="text" name="weight"></td>
+            </tr>
+            <tr>
+                <td>Shipping fee</td>
+                <td><input type="text" name="shippingFee"></td>
+            </tr>
+            <tr>
+                <td>Charges</td>
+                <td><input type="text" name="charges"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit"
+                                                      name="signup" value="Sign Up" size="30"> <input
+                        type="reset" name="reset" value="Reset" size="30"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

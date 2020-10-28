@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Form</title>
+</head>
+<body>
+
+<div>
+    <h1>Update Form</h1>
+    <form th:action="@{/update}" method="post">
+        <table width="550" height="550" border="2" cellpadding="5"
+               align="center">
+            <tr>
+                <th colspan="2">
+                    <h3>Update</h3>
+                </th>
+            </tr>
+            <tr>
+                <td>ID</td>
+                <td><input type="text" name="id" size="30"
+                           th:value="${tran.id}" readonly></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name" size="30"
+                           th:value="${tran.name}"></td>
+            </tr>
+            <tr>
+                <td>Status</td>
+                <td><input type="text" name="status" size="30"
+                           th:value="${tran.status}"></td>
+            </tr>
+            <tr>
+                <td>Sending Destination</td>
+                <td><input type="text" name="sendDes" size="30"
+                           th:value="${tran.sendDes}"></td>
+            </tr>
+            <tr>
+                <td>Receiving Destination</td>
+                <td><input type="text" name="receiveDes" size="30"
+                           th:value="${tran.receiveDes}"></td>
+            </tr>
+            <tr>
+                <td>Initial Date</td>
+                <td><input type="date" id="initDate"
+                           name="initDate" th:value="${tran.initDate}"></td>
+            </tr>
+            <tr>
+                <td>Finishing Date</td>
+                <td><input type="date" id="finishDate"
+                           name="finishDate" th:value="${tran.finishDate}"></td>
+            </tr>
+            <tr>
+                <td>Shipping manufacturer</td>
+                <td><input type="text" name="shipManu" size="30"
+                           th:value="${tran.shipManu}"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea name="description" cols="20" th:field="${tran.description}"></textarea></td>
+            </tr>
+            <tr>
+                <td>Product's Weight</td>
+                <td><input type="text" name="weight" th:value="${tran.weight}"></td>
+            </tr>
+            <tr>
+                <td>Shipping fee</td>
+                <td><input type="text" name="shippingFee" th:value="${tran.shippingFee}"></td>
+            </tr>
+            <tr>
+                <td>Charges</td>
+                <td><input type="text" name="charges" th:value="${tran.charges}"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit"
+                                                      name="signup" value="Sign Up" size="30"> <input
+                        type="reset" name="reset" value="Reset" size="30"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
