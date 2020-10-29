@@ -3,81 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Create</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 </head>
 <body>
 
 <div>
     <h1 align="center">Add New Shipment</h1>
     <form th:action="@{/create}" method="POST">
-        <table width="550" height="550" border="2" cellpadding="5"
-               align="center">
-            <tr>
-                <th colspan="2">
-                    <h3>Create</h3>
-                </th>
-            </tr>
-            <!--            <tr>-->
-            <!--                <td>ID</td>-->
-            <!--                <td><input type="text" name="id" size="30"-->
-            <!--                           placeholder="ID" aria-placeholder="id"></td>-->
-            <!--            </tr>-->
-            <tr>
-                <td>Name</td>
-                <td><input type="text" name="name" size="30"
-                           placeholder="Enter name"></td>
-            </tr>
-            <tr>
-                <td>Status</td>
-                <td><input type="text" name="status" size="30"
-                           placeholder="Enter status"></td>
-            </tr>
-            <tr>
-                <td>Sending Destination</td>
-                <td><input type="text" name="sendDes" size="30"
-                           placeholder="sending destination"></td>
-            </tr>
-            <tr>
-                <td>Receiving Destination</td>
-                <td><input type="text" name="receiveDes" size="30"
-                           placeholder="receiving destination"></td>
-            </tr>
-            <tr>
-                <td>Initial Date</td>
-                <td><input type="date" id="initDate"
-                           name="initDate"></td>
-            </tr>
-            <tr>
-                <td>Finishing Date</td>
-                <td><input type="date" id="finishDate"
-                           name="finishDate"></td>
-            </tr>
-            <tr>
-                <td>Shipping manufacturer</td>
-                <td><input type="text" name="shipManu" size="30"
-                           placeholder="shipping manufacturer"></td>
-            </tr>
-            <tr>
-                <td>Description</td>
-                <td><textarea name="description" cols="20"></textarea></td>
-            </tr>
-            <tr>
-                <td>Product's Weight</td>
-                <td><input type="text" name="weight"></td>
-            </tr>
-            <tr>
-                <td>Shipping fee</td>
-                <td><input type="text" name="shippingFee"></td>
-            </tr>
-            <tr>
-                <td>Charges</td>
-                <td><input type="text" name="charges"></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="submit"
-                                                      name="signup" value="Create" size="30"> <input
-                        type="reset" name="reset" value="Reset" size="30"></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <table width="550" height="550" border="2" cellpadding="5"
+                   align="center">
+                <tr>
+                    <th colspan="2">
+                        <h3>Create</h3>
+                    </th>
+                </tr>
+                <!--            <tr>-->
+                <!--                <td>ID</td>-->
+                <!--                <td><input type="text" name="id" size="30"-->
+                <!--                           placeholder="ID" aria-placeholder="id"></td>-->
+                <!--            </tr>-->
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="name" size="30"
+                               placeholder="Enter name"></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><input type="text" name="status" size="30"
+                               placeholder="Enter status"></td>
+                </tr>
+                <tr>
+                    <td>Sending Destination</td>
+                    <td><input type="text" name="sendDes" size="30"
+                               placeholder="sending destination"></td>
+                </tr>
+                <tr>
+                    <td>Receiving Destination</td>
+                    <td><input type="text" name="receiveDes" size="30"
+                               placeholder="receiving destination"></td>
+                </tr>
+                <tr>
+                    <td>Initial Date</td>
+                    <td><input type="date" id="initDate"
+                               name="initDate"></td>
+                </tr>
+                <tr>
+                    <td>Finishing Date</td>
+                    <td><input type="date" id="finishDate"
+                               name="finishDate"></td>
+                </tr>
+                <tr>
+                    <td>Shipping manufacturer</td>
+                    <td><input type="text" name="shipManu" size="30"
+                               placeholder="shipping manufacturer"></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td><textarea name="description" cols="20"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Product's Weight</td>
+                    <td><input type="text" name="weight"></td>
+                </tr>
+                <tr>
+                    <td>Shipping fee</td>
+                    <td><input type="text" name="shippingFee"></td>
+                </tr>
+                <tr>
+                    <td>Charges</td>
+                    <td><input type="text" name="charges"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit"
+                                                          name="signup" value="Create" size="30"> <input
+                            type="reset" name="reset" value="Reset" size="30"></td>
+                </tr>
+            </table>
+        </div>
     </form>
 </div>
 </body>
