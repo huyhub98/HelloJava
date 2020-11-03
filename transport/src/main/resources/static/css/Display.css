@@ -1,0 +1,30 @@
+body {
+    background: #ff6f61;
+}
+
+.btn-search {
+    padding: 9px 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    box-shadow: 0 1px #999;
+}
+
+.btn-search {
+    background-color: #3e8e41
+}
+
+.btn-search {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+}
+
+.ship {
+    margin-top: 9px;
+    background: #f7fff2;
+}
