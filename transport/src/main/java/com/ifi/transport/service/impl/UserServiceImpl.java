@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
     public void delete(int id) {
         User user = userDao.getId(id);
         if (user != null) {
-            userDao.delete(id);
+            userDao.delete(user);
         }
     }
 
