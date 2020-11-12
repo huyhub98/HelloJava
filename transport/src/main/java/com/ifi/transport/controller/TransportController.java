@@ -1,6 +1,6 @@
 package com.ifi.transport.controller;
 
-import com.ifi.transport.dao.TransportRepository;
+import com.ifi.transport.repository.TransportRepository;
 import com.ifi.transport.dao.impl.TransportDaoImpl;
 import com.ifi.transport.entity.Transport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 

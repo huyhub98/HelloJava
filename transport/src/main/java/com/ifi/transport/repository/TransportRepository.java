@@ -1,4 +1,4 @@
-package com.ifi.transport.dao;
+package com.ifi.transport.repository;
 
 import com.ifi.transport.entity.Transport;
 import org.springframework.data.jpa.repository.JpaRepository;

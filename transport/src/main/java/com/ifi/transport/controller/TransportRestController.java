@@ -1,8 +1,11 @@
 package com.ifi.transport.controller;
 
-import com.ifi.transport.dao.TransportRepository;
+import com.ifi.transport.entity.User;
+import com.ifi.transport.repository.TransportRepository;
 import com.ifi.transport.entity.Transport;
+import com.ifi.transport.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +14,9 @@ import java.util.List;
 public class TransportRestController {
     @Autowired
     private TransportRepository transportRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     // get all
     @GetMapping("/show")
@@ -37,5 +43,14 @@ public class TransportRestController {
     public String delete(@PathVariable("id") int id) {
         transportRepository.deleteById(id);
         return "deleted object id: " + id;
+    }
+
+    //check login
+    @PostMapping("/api/login")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public User checkLogin(@RequestBody User user) {
+        user = userRepository.check(user.getUsername(), user.getPhoneNumber(), user.getPassword());
+        return user;
+
     }
 }
