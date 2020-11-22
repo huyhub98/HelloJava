@@ -1,11 +1,12 @@
 package com.ifi.transport.service.impl;
 
-import com.ifi.transport.dao.impl.UserDaoImpl;
+import com.ifi.transport.dao.UserDao;
 import com.ifi.transport.entity.User;
 import com.ifi.transport.model.UserDTO;
 import com.ifi.transport.repository.UserRepository;
 import com.ifi.transport.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -19,7 +20,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private UserDaoImpl userDao;
+    private UserDao userDao;
 
     @Override
     public void create(UserDTO userDTO) {
@@ -69,6 +70,11 @@ public class UserServiceImpl implements UserService {
             userDTOS.add(convertUser(user));
         }
         return userDTOS;
+    }
+
+    @Override
+    public List<User> list() {
+        return userRepository.findAll(Sort.by("email").descending());
     }
 
     private UserDTO convertUser(User user) {

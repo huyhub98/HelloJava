@@ -1,5 +1,6 @@
 package com.ifi.transport.service;
 
+import com.ifi.transport.entity.User;
 import com.ifi.transport.model.UserDTO;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface UserService {
     UserDTO getUser(int id);
 
     List<UserDTO> getAll();
+
+    List<User> list();
 }
