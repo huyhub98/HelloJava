@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void create(UserDTO userDTO) {
         User user = new User();
-        user.setFullName(userDTO.getFullName());
+        user.setFullname(userDTO.getFullname());
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserDTO userDTO) {
         User user = userDao.getId(userDTO.getId());
         if (user != null) {
-            user.setFullName(userDTO.getFullName());
+            user.setFullname(userDTO.getFullname());
             user.setUsername(userDTO.getUsername());
             user.setPassword(userDTO.getPassword());
             user.setEmail(userDTO.getEmail());
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
     private UserDTO convertUser(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());
-        userDTO.setFullName(user.getFullName());
+        userDTO.setFullname(user.getFullname());
         userDTO.setUsername(user.getUsername());
         userDTO.setPassword(user.getPassword());
         userDTO.setEmail(user.getEmail());

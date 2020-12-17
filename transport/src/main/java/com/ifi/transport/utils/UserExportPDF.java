@@ -48,7 +48,7 @@ public class UserExportPDF {
     private void writeTableData(PdfPTable table) {
         for (User user : users) {
             table.addCell(String.valueOf(user.getId()));
-            table.addCell(user.getFullName());
+            table.addCell(user.getFullname());
             table.addCell(user.getUsername());
             table.addCell(user.getEmail());
             table.addCell(String.valueOf(user.getPhoneNumber()));
