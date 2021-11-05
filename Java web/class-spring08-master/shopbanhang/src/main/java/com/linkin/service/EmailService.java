@@ -46,7 +46,7 @@ class EmailServiceImpl implements EmailService {
 			helper.setSubject(subject);
 
 			emailSender.send(message);
-			System.out.println("đã gửi mail");
+			logger.info("mail sent");
 		} catch (Exception ex) {
 			logger.error("Email sending ex: " + ex);
 		}

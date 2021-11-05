@@ -161,7 +161,7 @@ public class MemberController {
 
 			// if (list.isEmpty() == true ) {// lan dau mua
 			if (list.size() == 1) { // lan dau mua
-				long finalTotalPrice = totalPrice - (totalPrice * 5 / 100); 
+				finalTotalPrice = totalPrice - (totalPrice * 5 / 100);
 				bill.setPriceTotal(finalTotalPrice);
 				bill.setDiscountPercent(5);
 				
